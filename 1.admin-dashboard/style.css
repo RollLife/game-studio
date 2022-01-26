@@ -8,42 +8,46 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
-:root{
+:root {
     --blue: #287bff;
     --white: #fff;
     --grey: #f5f5f5;
     --black1: #f222;
     --black2: #999;
 }
-body{
+
+body {
     /*vh가 무엇을 의미하는 것일까?*/
     min-height: 100vh;
     /*overflow-x의 의미는?*/
     overflow-x: hidden;
 }
-.container{
+
+.container {
     position: relative;
     width: 100%;
 }
-.navigation{
+
+.navigation {
     position: fixed;
     width: 300px;
     height: 100%;
     background: var(--blue);
-    border-left : 10px solid var(--blue);
+    border-left: 10px solid var(--blue);
     /*transition의 의미는? 또한 단위는 s만 쓰는것인가?*/
     transition: 0.5s;
     /*overflow 의 의미는?*/
     overflow: hidden;
 }
 
-.navigation ul{
+.navigation ul {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
-.navigation ul li{
+
+.navigation ul li {
     position: relative;
     width: 100%;
     /*li의 list style을 없애준다*/
@@ -53,17 +57,19 @@ body{
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
+
 .navigation ul li:hover,
-.navigation ul li.hovered{
+.navigation ul li.hovered {
     background: var(--white);
 }
 
-.navigation ul li:nth-child(1){
+.navigation ul li:nth-child(1) {
     margin-bottom: 40px;
     /*pointer-events none을 하니까 hover event처럼 효과가 나오지않는다.*/
     pointer-events: none;
 }
-.navigation ul li a{
+
+.navigation ul li a {
     /*여기서 relative와 display flex를 사용하는 이유는?*/
     position: relative;
     /*display: block;*/
@@ -74,12 +80,12 @@ body{
 }
 
 .navigation ul li:hover a,
-.navigation ul li.hovered a{
+.navigation ul li.hovered a {
     color: var(--blue);
 
 }
 
-.navigation ul li a .icon{
+.navigation ul li a .icon {
     /*여기서 왜 반드시 relative와 display block을 사용해야할까?*/
     position: relative;
     display: block;
@@ -91,12 +97,12 @@ body{
 }
 
 /*아이콘만 크게 만들기*/
-.navigation ul li a .icon ion-icon{
+.navigation ul li a .icon ion-icon {
     /*font-size의 단위는 em인가?*/
     font-size: 1.75em;
 }
 
-.navigation ul li a .title{
+.navigation ul li a .title {
     position: relative;
     display: block;
     padding: 0 10px;
@@ -109,7 +115,7 @@ body{
 /* curve outside */
 /* 바깥쪽을 둥글게 만드는 효과*/
 .navigation ul li:hover a::before,
-.navigation ul li.hovered a::before{
+.navigation ul li.hovered a::before {
     /*before는 무슨효과?*/
     /*content ''는 무슨의미?*/
     /*before는 무슨의미?*/
@@ -126,8 +132,9 @@ body{
     /*이 효과의 의미?*/
     pointer-events: none;
 }
+
 .navigation ul li:hover a::after,
-.navigation ul li.hovered a::after{
+.navigation ul li.hovered a::after {
     /*after는 무슨효과?*/
     /*content ''는 무슨의미?*/
     /*before는 무슨의미?*/
@@ -143,4 +150,84 @@ body{
     box-shadow: 35px -35px 0 10px var(--white);
     /*이 효과의 의미?*/
     pointer-events: none;
+}
+
+/* main */
+
+.main {
+    position: absolute;
+    /* 이렇게 한 이유는?*/
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    /*이 속성의 의미는?*/
+    transition: 0.5s;
+}
+
+.topbar {
+    width: 100%;
+    height: 60px;
+    /* flex는 왜쓸까*/
+    display: flex;
+    /*???*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label {
+    position: relative;
+    width: 100%;
+}
+
+.search label input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px 5px 35px;
+    font-size: 18px;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2em;
+}
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user img{
+    /*위에 속성만 적용시켜준다면 이미지는 이상하게 나고이때문에 이미지는 따로 이렇게 절대값으로 초기화시켜주어야함*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 이건 뭘까*/
+    object-fit: cover;
 }
