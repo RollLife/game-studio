@@ -53,8 +53,8 @@ body{
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
 }
-
-.navigation ul li:hover{
+.navigation ul li:hover,
+.navigation ul li.hovered{
     background: var(--white);
 }
 
@@ -98,7 +98,7 @@ body{
 .navigation ul li a .title{
     position: relative;
     display: block;
-    padding: 0 10px
+    padding: 0 10px;
     height: 60px;
     line-height: 60px;
     /*이걸 하면 뭐가 달라질까?*/
@@ -107,7 +107,8 @@ body{
 
 /* curve outside */
 /* 바깥쪽을 둥글게 만드는 효과*/
-.navigation ul li:hover a::before{
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
     /*before는 무슨효과?*/
     /*content ''는 무슨의미?*/
     /*before는 무슨의미?*/
@@ -124,8 +125,8 @@ body{
     /*이 효과의 의미?*/
     pointer-events: none;
 }
-
-.navigation ul li:hover a::after{
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
     /*after는 무슨효과?*/
     /*content ''는 무슨의미?*/
     /*before는 무슨의미?*/
