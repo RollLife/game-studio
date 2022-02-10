@@ -12,7 +12,7 @@
     --blue: #287bff;
     --white: #fff;
     --grey: #f5f5f5;
-    --black1: #f222;
+    --black1: #222;
     --black2: #999;
 }
 
@@ -267,31 +267,155 @@ body {
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
     cursor: pointer;
 }
-.cardBox .card .numbers{
+
+.cardBox .card .numbers {
     position: relative;
     font-weight: 500;
     font-size: 2.5em;
     color: var(--blue);
 }
 
-.cardBox .card .cardName{
+.cardBox .card .cardName {
     color: var(--black2);
     font-size: 1.1em;
     margin-top: 5px;
 }
 
-.cardBox .card .iconBx{
+.cardBox .card .iconBx {
     font-size: 3.5em;
     color: var(--black2);
 }
 
 /* 마우스 올렸을때 색 반전되게 하는 속성들*/
-.cardBox .card:hover{
+.cardBox .card:hover {
     background: var(--blue);
 }
 
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx{
-    color : var(--white);
+.cardBox .card:hover .iconBx {
+    color: var(--white);
+}
+
+.details {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 10px;
+}
+
+.details .recentOrders {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.cardHeader {
+    display: flex;
+
+    /* 오른쪽 정렬 */
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2 {
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.btn {
+    position: relative;
+    padding: 5px 10px;
+    background: var(--blue);
+
+    /* 클릭했을때 밑줄 없애기*/
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 6px;
+}
+
+.details table {
+    width: 100%;
+    /* ??? */
+    /* 이거 안하면 테이블 간격이 줄로 표시됨 거슬림*/
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td {
+    font-weight: 600;
+}
+
+/* 선긋기 */
+.details .recentOrders table tr {
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 마지막행은 줄 긋지 않도록 함*/
+.details .recentOrders table tr:last-child {
+    border-bottom: none;
+}
+
+.details .recentOrders table tr:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.details .recentOrders table tr td {
+    padding: 10px;
+}
+
+/* 테이블 끝에 정렬이 안되어서 뒤 컬럼이 남아보이는것처럼 보인다. 이를 방지하여 마지막 열은 끝으로 밀어준다.*/
+.details .recentOrders table tr td:last-child {
+    text-align: end;
+}
+
+/* 금액은 달러가 붙기때문에 왼쪽 정렬을하게되면 불편하게 보인다. 위와 같이 오른쪽 정렬을 해준다.*/
+.details .recentOrders table tr td:nth-child(2) {
+    text-align: end;
+}
+
+.details .recentOrders table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.status.delivered {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.pending {
+    padding: 2px 4px;
+    background: #f9ca3f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.return {
+    padding: 2px 4px;
+    background: #f22;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.status.inprogress {
+    padding: 2px 4px;
+    background: #1795ce;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
 }
