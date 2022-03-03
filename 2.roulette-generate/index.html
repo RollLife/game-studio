@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="Winwheel.min.js"></script>
+    <title>My Winning Wheel</title>
+</head>
+<body>
+<p>나는 바보다</p>
+<canvas id="roulette" width="880" height="330">
+    what's going on
+</canvas>
+
+<button onClick="changeColors();"> changeColors</button>
+</body>
+<script>
+    let theWheel = new Winwheel(
+        {
+            'canvasId': 'roulette',
+            'numSegments': 4,
+            "segments": [
+                {"fillStyle": "#eae56f", "text" : "Segment 1"},
+                {"fillStyle": "#89f26e", "text" : "Segment 2"},
+                {"fillStyle": "#7de6ef", "text" : "Segment 3"},
+                {"fillStyle": "#e7706f", "text" : "Segment 4"}
+            ],
+            // "lineWidth" : 3
+        }
+    );
+
+    function changeColors(){
+        let temp = theWheel.segments[1].fillStyle;
+        theWheel.segments[1].fillStyle = theWheel.segments[2].fillStyle
+        theWheel.segments[2].fillStyle = theWheel.segments[3].fillStyle
+        theWheel.segments[3].fillStyle = theWheel.segments[4].fillStyle
+        theWheel.segments[4].fillStyle = temp
+
+        theWheel.draw()
+    }
+</script>
+</html>
