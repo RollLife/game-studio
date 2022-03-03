@@ -11,7 +11,9 @@
     what's going on
 </canvas>
 
-<button onClick="changeColors();"> changeColors</button>
+<button onClick="changeColors();">changeColors</button>
+<button onClick="addSegment();">addSegment</button>
+<button onClick="deleteSegment();">deleteSegment</button>
 </body>
 <script>
     let theWheel = new Winwheel(
@@ -34,6 +36,25 @@
         theWheel.segments[2].fillStyle = theWheel.segments[3].fillStyle
         theWheel.segments[3].fillStyle = theWheel.segments[4].fillStyle
         theWheel.segments[4].fillStyle = temp
+
+        theWheel.draw()
+    }
+
+    function addSegment(){
+        let date = new Date ();
+
+        theWheel.addSegment({
+            'text' : date.getMinutes() + ":" + date.getSeconds(),
+            "fillStyle" : "aqua"
+        }, 1)
+
+        theWheel.draw()
+    }
+
+
+    // Oldest Object high priority to delete
+    function deleteSegment(){
+        theWheel.deleteSegment();
 
         theWheel.draw()
     }
